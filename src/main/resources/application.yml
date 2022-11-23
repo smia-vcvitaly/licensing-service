@@ -2,6 +2,16 @@ spring:
   application:
     name: licensing-service
   profiles:
-    active: dev
+    active: ${SPRING_PROFILES_ACTIVE}
   config:
-    import: "configserver:http://localhost:8071"
+    import: "configserver:${SPRING_CLOUD_CONFIG_URI}"
+
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        SQL: DEBUG
+#        type:
+#          descriptor:
+#            sql:
+#              BasicBinder: TRACE
