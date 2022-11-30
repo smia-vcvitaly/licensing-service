@@ -6,8 +6,19 @@ spring:
   config:
     import: "configserver:${SPRING_CLOUD_CONFIG_URI}"
 
-#logging:
-#  level:
+resilience4j:
+  ratelimiter:
+    instances:
+      licenseService:
+        timeoutDuration: 1000
+        limitRefreshPeriod: 5000
+        limitForPeriod: 5
+
+
+logging:
+  level:
+    com:
+      optimagrowth: debug
 #    org:
 #      hibernate:
 #        SQL: DEBUG
@@ -15,3 +26,4 @@ spring:
 #          descriptor:
 #            sql:
 #              BasicBinder: TRACE
+    root: info
