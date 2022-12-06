@@ -1,8 +1,7 @@
 package com.optimagrowth.license.model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
+import org.springframework.data.redis.core.RedisHash;
 import org.springframework.hateoas.RepresentationModel;
 
 /**
@@ -10,9 +9,8 @@ import org.springframework.hateoas.RepresentationModel;
  *
  * @author Vitalii Chura
  */
-@Getter
-@Setter
-@ToString
+@Data
+@RedisHash("organization")
 public class Organization extends RepresentationModel<Organization> {
 
     String id;
